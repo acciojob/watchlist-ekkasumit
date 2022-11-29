@@ -35,14 +35,13 @@ public class MovieRepository {
     }
 
     public Director getDirector(String directorName){         //Get Director Details from Director Name
-
         return directorMap.get(directorName);
     }
 
-    public List<String > getListOfMovies(String directorName){   //List of All Movies By Direcor Name
+    public List<String > getListOfMovies(String directorName){   //List of All Movies By Director Name
         List<String> listOfMovies = new ArrayList<>();
         for(Movie m: movieDirectorMap.keySet()){
-            if(movieDirectorMap.get(m).getName() == directorName)
+            if(movieDirectorMap.get(m).getName().equals(directorName))
                 listOfMovies.add(m.getName());
         }
         return listOfMovies;
@@ -59,17 +58,14 @@ public class MovieRepository {
     public void deleteDirectorAndMovies(String directorName){    //Delete Director and All of his Movies from DB
 
         for(String s: directorMap.keySet()){
-            if(s == directorName)
+            if(s.equals(directorName))
                 directorMap.remove(s);
         }
 
         for(Movie m: movieDirectorMap.keySet()){
-            String movNam = m.getName();
 
-            if(movieMap.containsKey(movNam)){
-                movieMap.remove(movNam);
-            }
-            if(movieDirectorMap.get(m).getName() == directorName) {
+            if(movieDirectorMap.get(m).getName().equals(directorName)) {
+                movieMap.remove(m.getName());
                 movieDirectorMap.remove(m);
             }
         }

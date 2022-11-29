@@ -50,12 +50,4 @@ public class MovieService {
         movieRepository.deleteAllfromDirector();
     }
 
-
-
-
-
-    
-
-
-
 }
