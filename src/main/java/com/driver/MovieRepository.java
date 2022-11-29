@@ -47,7 +47,7 @@ public class MovieRepository {
         return listOfMovies;
     }
 
-    public List<String > getAllmoviesAdded(){                    //List of All the Movies Added
+    public List<String > getAllmoviesAdded(){                    //List of All the Movies Added.
         List<String> listOfAllMovies = new ArrayList<>();
         for(Movie m:movieMap.values()){
             listOfAllMovies.add(m.getName());
